@@ -1,1 +1,45 @@
-export default function PlayerGamepad() { return <div className="p-8 font-black text-2xl">PlayerGamepad</div> }
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useMockGame } from '../../context/MockGameContext'
+import AnswerPad from '../../components/player/AnswerPad'
+
+export default function PlayerGamepad() {
+  const navigate = useNavigate()
+  const { currentQuestion, players, gameStatus, teamScores } = useMockGame()
+
+  const thisPlayer = players[players.length - 1]
+
+  useEffect(() => {
+    if (gameStatus === 'finished') navigate('/play/result')
+    if (gameStatus === 'idle' || gameStatus === 'lobby') navigate('/play')
+  }, [gameStatus, navigate])
+
+  if (!thisPlayer || !currentQuestion) return null
+
+  const isOpor = thisPlayer.team === 'opor'
+  const teamScore = isOpor ? teamScores.opor : teamScores.rendang
+  const teamBg = isOpor ? 'bg-amber-400' : 'bg-amber-900'
+  const teamText = isOpor ? 'text-slate-900' : 'text-white'
+
+  return (
+    <div className="min-h-screen bg-bg-light flex flex-col">
+      {/* Question header */}
+      <div className="p-6 bg-slate-900 text-white text-center">
+        <p className="text-xs font-black text-primary uppercase mb-1">Pertanyaan</p>
+        <h3 className="text-xl font-black leading-tight">{currentQuestion.soal}</h3>
+      </div>
+
+      {/* Answer pad */}
+      <div className="flex-1 p-4">
+        <AnswerPad playerTeam={thisPlayer.team} />
+      </div>
+
+      {/* Team score footer */}
+      <div className={`p-4 ${teamBg} ${teamText} border-t-4 border-slate-900 text-center`}>
+        <p className="font-black text-sm uppercase">
+          {isOpor ? 'Tim Opor' : 'Tim Rendang'} — Poin: {teamScore}
+        </p>
+      </div>
+    </div>
+  )
+}
