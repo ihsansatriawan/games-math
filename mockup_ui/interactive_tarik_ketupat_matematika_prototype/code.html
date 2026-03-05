@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tarik Ketupat Matematika - Prototype</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#f59f0a',
+            'cream-bg': '#FFFDF5',
+            'opor': '#fbbf24', // amber-400
+            'rendang': '#a16207', // amber-700
+          },
+          borderRadius: {
+            'twelve': '0.75rem',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+<style data-purpose="neubrutalism-styles">
+    .neo-brutal {
+      border: 3px solid #1a1a1a;
+      box-shadow: 4px 4px 0px #1a1a1a;
+      transition: all 0.2s ease;
+    }
+    .neo-brutal:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #1a1a1a;
+    }
+    .neo-brutal-static {
+      border: 3px solid #1a1a1a;
+      box-shadow: 6px 6px 0px #1a1a1a;
+    }
+    .ketupat-pattern {
+      background-color: #fbbf24;
+      background-image:  linear-gradient(135deg, #f59f0a 25%, transparent 25%), linear-gradient(225deg, #f59f0a 25%, transparent 25%), linear-gradient(45deg, #f59f0a 25%, transparent 25%), linear-gradient(315deg, #f59f0a 25%, #fbbf24 25%);
+      background-position:  10px 0, 10px 0, 0 0, 0 0;
+      background-size: 20px 20px;
+      background-repeat: repeat;
+    }
+  
+    .fade-transition {
+      transition: opacity 0.3s ease-in-out;
+    }
+    .hidden-fade {
+      opacity: 0;
+      pointer-events: none;
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-cream-bg font-sans text-slate-900 min-h-screen">
+<!-- BEGIN: Navigation Toggle -->
+<nav class="sticky top-0 z-50 bg-white border-b-4 border-black p-4 flex justify-center gap-4">
+<button class="neo-brutal px-6 py-2 bg-brand text-white font-bold rounded-twelve" id="btn-host" onclick="switchView('host')">Host View (Desktop)</button>
+<button class="neo-brutal px-6 py-2 bg-white text-black font-bold rounded-twelve" id="btn-player" onclick="switchView('player')">Player View (Mobile)</button>
+</nav>
+<!-- END: Navigation Toggle -->
+<main class="p-8 flex justify-center">
+<!-- BEGIN: Host View Section -->
+<section class="w-full max-w-6xl space-y-12" id="host-view">
+<div class="text-center space-y-2">
+<h1 class="text-5xl font-extrabold tracking-tight">TARIK KETUPAT <span class="text-brand">MATEMATIKA</span></h1>
+<p class="text-slate-500 font-semibold">Tarik sekuat tenaga dengan menjawab soal!</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Setup State -->
+<div class="bg-white p-8 rounded-twelve neo-brutal-static space-y-6" data-purpose="host-setup">
+<div class="flex items-center gap-3 border-b-4 border-black pb-4">
+<i class="w-8 h-8 text-brand" data-lucide="settings-2"></i>
+<h2 class="text-2xl font-bold uppercase">1. Pengaturan Game</h2>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block font-bold mb-2">Mode Matematika</label>
+<div class="flex gap-2">
+<button class="neo-brutal flex-1 py-3 bg-brand text-white font-bold">TAMBAH (+)</button>
+<button class="neo-brutal flex-1 py-3 bg-white font-bold">KURANG (-)</button>
+<button class="neo-brutal flex-1 py-3 bg-white font-bold">KALI (x)</button>
+</div>
+</div>
+<div>
+<label class="block font-bold mb-2">Tingkat Kesulitan</label>
+<select class="w-full neo-brutal p-3 font-bold bg-white focus:ring-0">
+<option>Mudah</option>
+<option>Sedang</option>
+<option>Sulit</option>
+</select>
+</div>
+</div>
+<button class="w-full neo-brutal py-4 bg-emerald-500 text-white text-xl font-black rounded-twelve mt-4" onclick="showHostState('host-lobby')">BUAT RUANGAN</button>
+</div>
+<!-- Lobby State -->
+<div class="bg-white p-8 rounded-twelve neo-brutal-static space-y-6 relative overflow-hidden hidden" data-purpose="host-lobby">
+<div class="flex justify-between items-center border-b-4 border-black pb-4">
+<h2 class="text-2xl font-bold uppercase">2. Lobby Ruangan</h2>
+<div class="bg-black text-white px-4 py-1 font-mono text-2xl font-black">PIN: 789123</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-3">
+<h3 class="bg-opor p-2 text-center font-bold border-2 border-black">TIM OPOR (3)</h3>
+<ul class="text-sm font-medium space-y-1">
+<li class="p-2 border-2 border-dashed border-black">Hafizh</li>
+<li class="p-2 border-2 border-dashed border-black">Budi</li>
+<li class="p-2 border-2 border-dashed border-black">Siti</li>
+</ul>
+</div>
+<div class="space-y-3">
+<h3 class="bg-rendang p-2 text-center text-white font-bold border-2 border-black">TIM RENDANG (2)</h3>
+<ul class="text-sm font-medium space-y-1">
+<li class="p-2 border-2 border-dashed border-black">Andi</li>
+<li class="p-2 border-2 border-dashed border-black">Lia</li>
+</ul>
+</div>
+</div>
+<div class="bg-brand/10 p-4 border-2 border-brand border-dashed text-center">
+<p class="font-bold text-brand animate-pulse">Menunggu pemain lain bergabung...</p>
+</div>
+<button class="w-full neo-brutal py-4 bg-brand text-white text-xl font-black rounded-twelve mt-4 uppercase" onclick="showHostState('host-gameplay')">Mulai Permainan</button></div>
+<!-- Gameplay State -->
+<div class="bg-white p-8 rounded-twelve neo-brutal-static col-span-1 md:col-span-2 space-y-10 hidden" data-purpose="host-gameplay">
+<div class="w-full h-8 bg-slate-200 border-4 border-black rounded-full overflow-hidden">
+<div class="h-full bg-brand w-2/3"></div>
+</div>
+<div class="text-center">
+<p class="text-lg font-bold text-slate-500 mb-2">SOAL BERIKUTNYA:</p>
+<h2 class="text-7xl font-black">8 + 5 = ?</h2>
+</div>
+<!-- Tug of War Visual -->
+<div class="relative py-12 flex items-center justify-center">
+<div class="absolute w-full h-6 bg-black rounded-full shadow-[4px_4px_0px_#000]"></div>
+<div class="z-10 bg-white border-4 border-black p-4 flex gap-4 items-center">
+<div class="w-12 h-12 bg-opor border-4 border-black rotate-45 flex items-center justify-center">
+<i class="w-6 h-6 -rotate-45 text-black" data-lucide="award"></i>
+</div>
+<span class="font-black text-2xl">TARIK!</span>
+<div class="w-12 h-12 bg-rendang border-4 border-black rotate-45 flex items-center justify-center">
+<i class="w-6 h-6 -rotate-45 text-white" data-lucide="flame"></i>
+</div>
+</div>
+<!-- Winning Indicator -->
+<div class="absolute left-1/4 -top-4 bg-emerald-500 text-white px-4 py-1 font-bold neo-brutal text-sm">Tim Opor Unggul!</div>
+</div>
+</div>
+<!-- Result State -->
+<div class="bg-white p-12 rounded-twelve neo-brutal-static col-span-1 md:col-span-2 text-center ketupat-pattern hidden" data-purpose="host-result">
+<div class="bg-white p-10 border-4 border-black shadow-[10px_10px_0px_rgba(0,0,0,1)] inline-block max-w-lg">
+<i class="w-20 h-20 mx-auto text-brand mb-4" data-lucide="party-popper"></i>
+<h2 class="text-5xl font-black mb-4">TIM OPOR MENANG!</h2>
+<p class="text-xl font-bold text-slate-600 mb-8">Pesta ketupat segera dimulai!</p>
+<div class="flex gap-4 justify-center">
+<button class="neo-brutal px-8 py-3 bg-brand text-white font-bold">MAIN LAGI</button>
+<button class="neo-brutal px-8 py-3 bg-white font-bold border-2 border-black">KELUAR</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Host View Section -->
+<!-- BEGIN: Player View Section (Mobile Frame) -->
+<section class="hidden flex flex-wrap gap-8 justify-center" id="player-view">
+<!-- Frame Wrapper -->
+<div class="w-[380px] h-[780px] bg-black rounded-[3rem] p-3 shadow-2xl relative border-8 border-slate-800" data-purpose="mobile-mockup-join">
+<div class="w-full h-full bg-cream-bg rounded-[2.2rem] overflow-hidden relative flex flex-col">
+<!-- Join State -->
+<div class="flex-1 p-6 flex flex-col justify-center gap-8" id="player-join">
+<div class="text-center">
+<div class="w-20 h-20 bg-brand mx-auto mb-4 neo-brutal flex items-center justify-center">
+<i class="text-white w-10 h-10" data-lucide="gamepad-2"></i>
+</div>
+<h2 class="text-3xl font-black">MASUK GAME</h2>
+</div>
+<div class="space-y-4">
+<input class="w-full p-4 neo-brutal font-bold text-center text-xl uppercase" placeholder="PIN RUANGAN" type="text"/>
+<input class="w-full p-4 neo-brutal font-bold text-center text-xl" placeholder="NAMA KAMU" type="text"/>
+<button class="w-full py-4 neo-brutal bg-brand text-white font-black text-xl" onclick="showPlayerState('mobile-mockup-waiting')">GABUNG</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Frame Wrapper Waiting -->
+<div class="hidden" data-purpose="mobile-mockup-waiting">
+<div class="w-full h-full bg-opor rounded-[2.2rem] overflow-hidden relative flex flex-col">
+<!-- Waiting State -->
+<div class="flex-1 p-8 flex flex-col items-center justify-center text-center gap-6" id="player-waiting">
+<div class="animate-bounce">
+<i class="w-24 h-24 text-black" data-lucide="timer"></i>
+</div>
+<h2 class="text-3xl font-black">HALO HAFIZH!</h2>
+<div class="bg-white p-4 neo-brutal-static w-full">
+<p class="font-bold text-lg">Kamu masuk <br/><span class="text-2xl text-brand">TIM OPOR</span></p>
+</div>
+<p class="font-semibold text-slate-800">Tunggu guru memulai permainan ya...</p>
+</div>
+</div>
+</div>
+<!-- Frame Wrapper Gamepad -->
+<div class="hidden" data-purpose="mobile-mockup-gamepad">
+<div class="w-full h-full bg-white rounded-[2.2rem] overflow-hidden relative flex flex-col">
+<!-- Gamepad State -->
+<div class="flex-1 flex flex-col" id="player-gamepad">
+<div class="p-6 bg-slate-900 text-white text-center">
+<p class="text-xs font-bold text-brand uppercase mb-1">Pertanyaan</p>
+<h3 class="text-2xl font-black">8 + 5 = ...</h3>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-4 p-4">
+<button class="neo-brutal bg-blue-500 text-white text-4xl font-black flex items-center justify-center rounded-twelve" onclick="handlePlayerAnswer(this)">11</button>
+<button class="neo-brutal bg-red-500 text-white text-4xl font-black flex items-center justify-center rounded-twelve" onclick="handlePlayerAnswer(this)">12</button>
+<button class="neo-brutal bg-emerald-500 text-white text-4xl font-black flex items-center justify-center rounded-twelve" onclick="handlePlayerAnswer(this)">13</button>
+<button class="neo-brutal bg-yellow-500 text-white text-4xl font-black flex items-center justify-center rounded-twelve" onclick="handlePlayerAnswer(this)">14</button>
+</div>
+<div class="p-4 bg-opor border-t-4 border-black text-center font-bold">
+              Kekuatan Tim: 75%
+            </div>
+</div>
+</div>
+</div>
+<!-- Frame Wrapper Result -->
+<div class="hidden" data-purpose="mobile-mockup-result">
+<div class="w-full h-full bg-brand rounded-[2.2rem] overflow-hidden relative flex flex-col">
+<!-- Result State -->
+<div class="flex-1 p-8 flex flex-col items-center justify-center text-center gap-6 ketupat-pattern" id="player-result">
+<div class="bg-white p-8 neo-brutal-static w-full space-y-4">
+<h2 class="text-4xl font-black">HORE!</h2>
+<div class="w-32 h-32 mx-auto bg-emerald-100 rounded-full flex items-center justify-center">
+<i class="w-16 h-16 text-emerald-600" data-lucide="trophy"></i>
+</div>
+<h3 class="text-2xl font-black text-emerald-600">MENANG!</h3>
+<p class="font-bold text-slate-500">Poin Kamu: +150</p>
+<button class="w-full py-3 neo-brutal bg-black text-white font-bold">KEREN!</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Player View Section -->
+</main>
+<script data-purpose="navigation-logic">function switchView(view) {
+      const host = document.getElementById('host-view');
+      const player = document.getElementById('player-view');
+      const btnHost = document.getElementById('btn-host');
+      const btnPlayer = document.getElementById('btn-player');
+
+      if (view === 'host') {
+        host.classList.remove('hidden');
+        player.classList.add('hidden');
+        btnHost.classList.add('bg-brand', 'text-white');
+        btnHost.classList.remove('bg-white', 'text-black');
+        btnPlayer.classList.add('bg-white', 'text-black');
+        btnPlayer.classList.remove('bg-brand', 'text-white');
+      } else {
+        host.classList.add('hidden');
+        player.classList.remove('hidden');
+        btnPlayer.classList.add('bg-brand', 'text-white');
+        btnPlayer.classList.remove('bg-white', 'text-black');
+        btnHost.classList.add('bg-white', 'text-black');
+        btnHost.classList.remove('bg-brand', 'text-white');
+      }
+    }
+
+    function showHostState(stateId) {
+      const states = ['host-setup', 'host-lobby', 'host-gameplay', 'host-result'];
+      states.forEach(id => {
+        const el = document.querySelector(`[data-purpose='${id}']`);
+        if (el) el.classList.add('hidden');
+      });
+      document.querySelector(`[data-purpose='${stateId}']`).classList.remove('hidden');
+    }
+
+    function showPlayerState(stateId) {
+      const states = ['mobile-mockup-join', 'mobile-mockup-waiting', 'mobile-mockup-gamepad', 'mobile-mockup-result'];
+      states.forEach(id => {
+        const el = document.querySelector(`[data-purpose='${id}']`);
+        if (el) el.classList.add('hidden');
+      });
+      document.querySelector(`[data-purpose='${stateId}']`).classList.remove('hidden');
+      document.querySelector('#player-view').classList.remove('hidden');
+      document.querySelector('#player-view').classList.add('flex');
+    }
+
+    function handlePlayerAnswer(btn) {
+      const isCorrect = btn.innerText === '13'; // Mock correct answer
+      const buttons = btn.parentElement.querySelectorAll('button');
+      
+      buttons.forEach(b => {
+        b.disabled = true;
+        b.classList.add('opacity-50');
+      });
+
+      btn.classList.remove('opacity-50');
+      if (isCorrect) {
+        btn.classList.replace('bg-emerald-500', 'bg-[#00ff00]');
+        btn.classList.add('ring-4', 'ring-black');
+      } else {
+        btn.classList.replace('bg-blue-500', 'bg-red-800');
+        btn.classList.replace('bg-red-500', 'bg-red-800');
+        btn.classList.replace('bg-yellow-500', 'bg-red-800');
+        btn.classList.add('ring-4', 'ring-black');
+      }
+
+      setTimeout(() => {
+        showPlayerState('mobile-mockup-result');
+      }, 1000);
+    }</script>
+<script data-purpose="icon-initialization">
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body></html>

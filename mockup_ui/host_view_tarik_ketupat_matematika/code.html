@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f59f0a",
+                        "background-light": "#FFFDF5",
+                        "background-dark": "#221c10",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "full": "9999px"
+                    },
+                    borderWidth: {
+                        "3": "3px",
+                        "4": "4px"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .neubrutalism {
+            border: 4px solid #181511;
+            box-shadow: 8px 8px 0px 0px #181511;
+        }
+        .neubrutalism-sm {
+            border: 3px solid #181511;
+            box-shadow: 4px 4px 0px 0px #181511;
+        }
+        .ketupat-pattern {
+            background-color: #f59f0a;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-background-light font-display text-slate-900 min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between border-b-4 border-slate-900 bg-white px-10 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-12 bg-primary rounded-xl flex items-center justify-center neubrutalism-sm">
+<span class="material-symbols-outlined text-white text-3xl">grid_view</span>
+</div>
+<div>
+<h1 class="text-2xl font-black uppercase tracking-tight">Tarik Ketupat Matematika</h1>
+<p class="text-sm font-bold text-slate-500 uppercase">Host View • Dashboard</p>
+</div>
+</div>
+<nav class="flex gap-4">
+<div class="flex bg-slate-100 p-1 rounded-xl border-2 border-slate-900">
+<a class="px-6 py-2 bg-primary text-white font-bold rounded-lg border-2 border-slate-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" href="#">Setup</a>
+<a class="px-6 py-2 font-bold text-slate-600 hover:text-slate-900" href="#">Lobby</a>
+<a class="px-6 py-2 font-bold text-slate-600 hover:text-slate-900" href="#">Gameplay</a>
+<a class="px-6 py-2 font-bold text-slate-600 hover:text-slate-900" href="#">Result</a>
+</div>
+</nav>
+<div class="flex items-center gap-4">
+<button class="size-12 rounded-xl border-2 border-slate-900 flex items-center justify-center hover:bg-slate-50">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="size-12 rounded-full border-2 border-slate-900 bg-slate-200 overflow-hidden" data-alt="User Avatar Profile Image">
+<img alt="Host Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1HigMN6FwxFga_HojM-MDbBv_mq4qSbhbZWvqtDbkKhxq0IK6rqAo1qlIyBrugkzG58ZCF5hBDP2CjEtCViLVywC_QHdC7_eMJlyMMQCG9Da_Yd8M6tNaBxisFLO-exoHCdDwxIG7jDyq88f4j2iBri0ExNY_KkweqrLM0bqASn17Z72iNWuLQny9BICi_8Tpqg6OYBLUOssbujrdKyUXAa1T5Gmx5jNbuQFlUu03kwxZdT48PmjNdO7sh-nIpXHQSwnGfInXdqk"/>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto p-8">
+<!-- SCREEN 1: SETUP PAGE (Active by default in this prototype) -->
+<section class="flex flex-col items-center justify-center py-10" id="setup-screen">
+<div class="w-full max-w-2xl bg-white p-10 rounded-2xl neubrutalism">
+<div class="mb-8 text-center">
+<h2 class="text-4xl font-black mb-2 uppercase italic text-slate-900">Persiapan Perang Ketupat!</h2>
+<p class="text-lg font-bold text-slate-500">Konfigurasi arena pertandingan matematika kamu</p>
+</div>
+<div class="space-y-8">
+<!-- Math Mode Selection -->
+<div>
+<label class="block text-xl font-black mb-4 uppercase tracking-wide">Pilih Mode Matematika</label>
+<div class="grid grid-cols-3 gap-4">
+<label class="cursor-pointer group">
+<input checked="" class="hidden peer" name="math-mode" type="radio"/>
+<div class="flex flex-col items-center justify-center p-6 bg-amber-50 rounded-xl border-4 border-slate-900 peer-checked:bg-primary peer-checked:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] peer-checked:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-y-1">
+<span class="text-4xl font-black mb-2">+</span>
+<span class="font-bold uppercase">Tambah</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="hidden peer" name="math-mode" type="radio"/>
+<div class="flex flex-col items-center justify-center p-6 bg-amber-50 rounded-xl border-4 border-slate-900 peer-checked:bg-primary peer-checked:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] peer-checked:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-y-1">
+<span class="text-4xl font-black mb-2">−</span>
+<span class="font-bold uppercase">Kurang</span>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="hidden peer" name="math-mode" type="radio"/>
+<div class="flex flex-col items-center justify-center p-6 bg-amber-50 rounded-xl border-4 border-slate-900 peer-checked:bg-primary peer-checked:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] peer-checked:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-y-1">
+<span class="text-4xl font-black mb-2">×</span>
+<span class="font-bold uppercase">Kali</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Difficulty Selection -->
+<div>
+<label class="block text-xl font-black mb-4 uppercase tracking-wide">Tingkat Kesulitan</label>
+<div class="flex gap-4">
+<label class="flex-1 cursor-pointer">
+<input checked="" class="hidden peer" name="difficulty" type="radio"/>
+<div class="py-4 text-center bg-white rounded-xl border-4 border-slate-900 font-black uppercase tracking-wider peer-checked:bg-emerald-400 peer-checked:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Mudah</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="hidden peer" name="difficulty" type="radio"/>
+<div class="py-4 text-center bg-white rounded-xl border-4 border-slate-900 font-black uppercase tracking-wider peer-checked:bg-amber-400 peer-checked:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Sedang</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="hidden peer" name="difficulty" type="radio"/>
+<div class="py-4 text-center bg-white rounded-xl border-4 border-slate-900 font-black uppercase tracking-wider peer-checked:bg-rose-400 peer-checked:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Sulit</div>
+</label>
+</div>
+</div>
+<button class="w-full py-6 bg-emerald-500 text-white text-3xl font-black uppercase tracking-widest rounded-2xl neubrutalism hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[12px_12px_0px_0px_rgba(24,21,17,1)] transition-all">
+                        Buat Ruangan
+                    </button>
+</div>
+</div>
+</section>
+<!-- SCREEN 2: LOBBY PAGE (Hidden) -->
+<section class="hidden grid grid-cols-12 gap-8 py-4 h-[70vh]" id="lobby-screen">
+<div class="col-span-5 flex flex-col justify-center items-center bg-white rounded-2xl neubrutalism p-10">
+<h3 class="text-3xl font-black uppercase mb-4">PIN RUANGAN</h3>
+<div class="text-9xl font-black tracking-tighter text-slate-900">789123</div>
+<div class="mt-12 flex gap-4">
+<span class="material-symbols-outlined text-4xl animate-bounce">qr_code_2</span>
+<p class="text-xl font-bold">Scan untuk bergabung</p>
+</div>
+</div>
+<div class="col-span-7 grid grid-cols-2 gap-6">
+<!-- Tim Opor -->
+<div class="bg-amber-400 rounded-2xl border-4 border-slate-900 shadow-[8px_8px_0px_0px_rgba(24,21,17,1)] flex flex-col overflow-hidden">
+<div class="p-6 border-b-4 border-slate-900 bg-white">
+<h4 class="text-2xl font-black uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500 fill-1">restaurant</span>
+                            Tim Opor
+                        </h4>
+</div>
+<div class="flex-1 p-6 space-y-3 overflow-y-auto">
+<div class="bg-white/80 p-3 rounded-lg border-2 border-slate-900 font-bold flex items-center gap-3">
+<span class="material-symbols-outlined">person</span> Andi
+                        </div>
+<div class="bg-white/80 p-3 rounded-lg border-2 border-slate-900 font-bold flex items-center gap-3">
+<span class="material-symbols-outlined">person</span> Siti
+                        </div>
+<div class="bg-white/80 p-3 rounded-lg border-2 border-slate-900 font-bold flex items-center gap-3">
+<span class="material-symbols-outlined">person</span> Budi
+                        </div>
+</div>
+</div>
+<!-- Tim Rendang -->
+<div class="bg-amber-900 text-white rounded-2xl border-4 border-slate-900 shadow-[8px_8px_0px_0px_rgba(24,21,17,1)] flex flex-col overflow-hidden">
+<div class="p-6 border-b-4 border-slate-900 bg-white text-slate-900">
+<h4 class="text-2xl font-black uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-900 fill-1">flatware</span>
+                            Tim Rendang
+                        </h4>
+</div>
+<div class="flex-1 p-6 space-y-3 overflow-y-auto">
+<div class="bg-black/20 p-3 rounded-lg border-2 border-white/20 font-bold flex items-center gap-3">
+<span class="material-symbols-outlined">person</span> Joko
+                        </div>
+<div class="bg-black/20 p-3 rounded-lg border-2 border-white/20 font-bold flex items-center gap-3">
+<span class="material-symbols-outlined">person</span> Maya
+                        </div>
+</div>
+</div>
+</div>
+<div class="col-span-12 mt-4">
+<button class="w-full py-8 bg-yellow-400 text-slate-900 text-4xl font-black uppercase tracking-widest rounded-2xl neubrutalism hover:bg-yellow-300">
+                    Mulai Permainan
+                </button>
+</div>
+</section>
+<!-- SCREEN 3: GAMEPLAY PAGE (Hidden) -->
+<section class="hidden flex flex-col h-[75vh] gap-10" id="gameplay-screen">
+<!-- Timer Bar -->
+<div class="w-full h-12 bg-white rounded-full border-4 border-slate-900 overflow-hidden shadow-[4px_4px_0px_0px_rgba(24,21,17,1)]">
+<div class="h-full bg-rose-500 w-2/3 border-r-4 border-slate-900"></div>
+</div>
+<!-- Question -->
+<div class="flex-1 flex flex-col items-center justify-center bg-white rounded-3xl neubrutalism p-12 text-center relative overflow-hidden">
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="px-4 py-2 bg-emerald-100 text-emerald-800 font-black rounded-lg border-2 border-slate-900">SOAL 5/10</span>
+</div>
+<div class="text-8xl font-black text-emerald-700 leading-tight">
+                    8 Ketupat + 5 Ketupat = ?
+                </div>
+<div class="mt-12 flex gap-8">
+<div class="w-40 h-24 bg-slate-100 border-4 border-slate-900 rounded-xl flex items-center justify-center text-4xl font-black">12</div>
+<div class="w-40 h-24 bg-slate-100 border-4 border-slate-900 rounded-xl flex items-center justify-center text-4xl font-black">13</div>
+<div class="w-40 h-24 bg-slate-100 border-4 border-slate-900 rounded-xl flex items-center justify-center text-4xl font-black">14</div>
+</div>
+</div>
+<!-- Tug of War Visual -->
+<div class="relative h-48 bg-amber-50 rounded-2xl border-4 border-slate-900 flex flex-col items-center justify-center overflow-hidden">
+<div class="absolute left-0 w-1/2 h-full bg-amber-400/20"></div>
+<!-- Rope -->
+<div class="w-full h-4 bg-amber-800 border-y-2 border-slate-900 relative">
+<!-- Ketupat Marker -->
+<div class="absolute top-1/2 left-2/3 -translate-y-1/2 -translate-x-1/2 size-20 bg-primary neubrutalism-sm rounded-lg rotate-45 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-5xl -rotate-45">bakery_dining</span>
+</div>
+</div>
+<!-- Labels -->
+<div class="w-full flex justify-between px-10 mt-8">
+<div class="text-2xl font-black uppercase text-amber-600">Tim Opor</div>
+<div class="text-2xl font-black uppercase text-amber-900">Tim Rendang</div>
+</div>
+<!-- Simulating Pull -->
+<div class="absolute bottom-4 w-1/2 px-10">
+<input class="w-full h-4 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary border-2 border-slate-900" type="range" value="66"/>
+</div>
+</div>
+</section>
+<!-- SCREEN 4: RESULT PAGE (Hidden) -->
+<section class="hidden flex flex-col items-center justify-center py-4 text-center" id="result-screen">
+<div class="w-full max-w-4xl bg-yellow-400 p-16 rounded-3xl border-8 border-slate-900 shadow-[20px_20px_0px_0px_rgba(24,21,17,1)] relative overflow-hidden">
+<!-- Confetti Icons Background -->
+<div class="absolute top-10 left-10 rotate-12 opacity-30">
+<span class="material-symbols-outlined text-8xl">celebration</span>
+</div>
+<div class="absolute bottom-10 right-10 -rotate-12 opacity-30">
+<span class="material-symbols-outlined text-8xl">celebration</span>
+</div>
+<h2 class="text-4xl font-black uppercase mb-4 tracking-tighter">Hasil Pertandingan</h2>
+<div class="text-8xl font-black uppercase text-slate-900 mb-8 leading-none italic">
+                    TIM OPOR<br/>MENANG!
+                </div>
+<div class="flex justify-center gap-12 mb-12">
+<div class="flex flex-col items-center">
+<div class="size-24 bg-white rounded-2xl border-4 border-slate-900 flex items-center justify-center text-4xl font-black mb-2">150</div>
+<span class="font-bold uppercase text-amber-800">Skor Opor</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="size-24 bg-white rounded-2xl border-4 border-slate-900 flex items-center justify-center text-4xl font-black mb-2">120</div>
+<span class="font-bold uppercase text-slate-700">Skor Rendang</span>
+</div>
+</div>
+<div class="flex gap-6 justify-center">
+<button class="px-10 py-5 bg-slate-900 text-white text-2xl font-black uppercase rounded-xl hover:translate-y-[-4px] transition-transform">
+                        Main Lagi
+                    </button>
+<button class="px-10 py-5 bg-white text-slate-900 border-4 border-slate-900 text-2xl font-black uppercase rounded-xl hover:translate-y-[-4px] transition-transform">
+                        Keluar
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation logic simulation (HTML Only version) -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-2 bg-slate-900/10 p-2 rounded-full backdrop-blur-sm border border-slate-900/20">
+<button class="px-4 py-2 bg-white border border-slate-900 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors" onclick="showScreen('setup-screen')">1. Setup</button>
+<button class="px-4 py-2 bg-white border border-slate-900 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors" onclick="showScreen('lobby-screen')">2. Lobby</button>
+<button class="px-4 py-2 bg-white border border-slate-900 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors" onclick="showScreen('gameplay-screen')">3. Game</button>
+<button class="px-4 py-2 bg-white border border-slate-900 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors" onclick="showScreen('result-screen')">4. Result</button>
+</div>
+<script>
+        function showScreen(screenId) {
+            const screens = ['setup-screen', 'lobby-screen', 'gameplay-screen', 'result-screen'];
+            screens.forEach(id => {
+                const element = document.getElementById(id);
+                if (id === screenId) {
+                    element.classList.remove('hidden');
+                } else {
+                    element.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body></html>
