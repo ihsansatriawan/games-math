@@ -1,22 +1,20 @@
 import { useNavigate } from 'react-router-dom'
 import { Trophy, Frown } from 'lucide-react'
-import { useMockGame } from '../../context/MockGameContext'
+import { useGame } from '../../context/GameContext'
 
 export default function PlayerResult() {
   const navigate = useNavigate()
-  const { players, teamScores } = useMockGame()
+  const { playerTeam, teamScores } = useGame()
 
-  const thisPlayer = players[players.length - 1]
-
-  if (!thisPlayer) {
+  if (!playerTeam) {
     navigate('/')
     return null
   }
 
   const { opor, rendang } = teamScores
   const winnerTeam = opor > rendang ? 'opor' : rendang > opor ? 'rendang' : 'draw'
-  const playerWon = winnerTeam === thisPlayer.team || winnerTeam === 'draw'
-  const playerScore = thisPlayer.team === 'opor' ? opor : rendang
+  const playerWon = winnerTeam === playerTeam || winnerTeam === 'draw'
+  const playerScore = playerTeam === 'opor' ? opor : rendang
 
   return (
     <div className="min-h-screen ketupat-pattern flex items-center justify-center p-6">

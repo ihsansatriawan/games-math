@@ -78,5 +78,141 @@
     "soal": "Ada 24 toples. Setiap toples berisi 12 kue. Total kue?",
     "opsi": { "A": "286", "B": "287", "C": "288", "D": "289" },
     "jawaban_benar": "C"
+  },
+  {
+    "id": "q_011",
+    "tipe": "penjumlahan",
+    "difficulty": "mudah",
+    "soal": "Di meja ada 6 ketupat. Nenek tambah 9 lagi. Totalnya?",
+    "opsi": { "A": "13", "B": "14", "C": "15", "D": "16" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_012",
+    "tipe": "pengurangan",
+    "difficulty": "mudah",
+    "soal": "Ada 18 kue. Dibagi ke 6 anak. Sisa berapa?",
+    "opsi": { "A": "10", "B": "11", "C": "12", "D": "13" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_013",
+    "tipe": "perkalian",
+    "difficulty": "mudah",
+    "soal": "5 anak, masing-masing punya 3 balon. Total balon?",
+    "opsi": { "A": "13", "B": "14", "C": "15", "D": "16" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_014",
+    "tipe": "perkalian",
+    "difficulty": "mudah",
+    "soal": "Ada 6 kotak, tiap kotak berisi 4 kue. Total kue?",
+    "opsi": { "A": "22", "B": "23", "C": "24", "D": "25" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_015",
+    "tipe": "penjumlahan",
+    "difficulty": "sedang",
+    "soal": "Pak Rudi beli 65 ketupat. Ibu Sari beli 48 ketupat. Total?",
+    "opsi": { "A": "111", "B": "112", "C": "113", "D": "114" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_016",
+    "tipe": "penjumlahan",
+    "difficulty": "sedang",
+    "soal": "Di pasar ada 73 porsi opor. Siang dijual 59 porsi lagi. Total?",
+    "opsi": { "A": "130", "B": "131", "C": "132", "D": "133" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_017",
+    "tipe": "pengurangan",
+    "difficulty": "sedang",
+    "soal": "Ada 150 ketupat. 87 sudah dibagikan. Sisa?",
+    "opsi": { "A": "61", "B": "62", "C": "63", "D": "64" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_018",
+    "tipe": "pengurangan",
+    "difficulty": "sedang",
+    "soal": "Ibu masak 120 kue. 75 dimakan tamu. Sisa?",
+    "opsi": { "A": "43", "B": "44", "C": "45", "D": "46" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_019",
+    "tipe": "perkalian",
+    "difficulty": "sedang",
+    "soal": "9 mobil, masing-masing membawa 7 penumpang. Total?",
+    "opsi": { "A": "61", "B": "62", "C": "63", "D": "64" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_020",
+    "tipe": "perkalian",
+    "difficulty": "sedang",
+    "soal": "12 meja, tiap meja ada 6 kursi. Total kursi?",
+    "opsi": { "A": "70", "B": "71", "C": "72", "D": "73" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_021",
+    "tipe": "penjumlahan",
+    "difficulty": "sulit",
+    "soal": "Desa A punya 847 warga. Desa B punya 563. Total?",
+    "opsi": { "A": "1408", "B": "1409", "C": "1410", "D": "1411" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_022",
+    "tipe": "penjumlahan",
+    "difficulty": "sulit",
+    "soal": "Toko A jual 1234 kg rendang. Toko B jual 987 kg. Total?",
+    "opsi": { "A": "2219", "B": "2220", "C": "2221", "D": "2222" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_023",
+    "tipe": "pengurangan",
+    "difficulty": "sulit",
+    "soal": "Ada 1000 ketupat. 647 sudah dibagikan. Sisa?",
+    "opsi": { "A": "351", "B": "352", "C": "353", "D": "354" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_024",
+    "tipe": "pengurangan",
+    "difficulty": "sulit",
+    "soal": "Pabrik punya 2500 produk. 1873 sudah terjual. Sisa?",
+    "opsi": { "A": "625", "B": "626", "C": "627", "D": "628" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_025",
+    "tipe": "pengurangan",
+    "difficulty": "sulit",
+    "soal": "Ada 3000 buku. 1567 sudah dibagikan. Sisa?",
+    "opsi": { "A": "1431", "B": "1432", "C": "1433", "D": "1434" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_026",
+    "tipe": "perkalian",
+    "difficulty": "sulit",
+    "soal": "35 kotak, tiap kotak berisi 24 buah. Total?",
+    "opsi": { "A": "838", "B": "839", "C": "840", "D": "841" },
+    "jawaban_benar": "C"
+  },
+  {
+    "id": "q_027",
+    "tipe": "perkalian",
+    "difficulty": "sulit",
+    "soal": "48 siswa, tiap siswa dapat 15 kue. Total kue?",
+    "opsi": { "A": "718", "B": "719", "C": "720", "D": "721" },
+    "jawaban_benar": "C"
   }
 ]

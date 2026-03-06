@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import { PartyPopper } from 'lucide-react'
-import { useMockGame } from '../../context/MockGameContext'
+import { useGame } from '../../context/GameContext'
 
 export default function HostResult() {
   const navigate = useNavigate()
-  const { teamScores, createRoom, gameConfig } = useMockGame()
+  const { teamScores, createRoom, gameConfig } = useGame()
 
   const winner = teamScores.opor > teamScores.rendang
     ? 'TIM OPOR'
@@ -18,8 +18,8 @@ export default function HostResult() {
     ? 'bg-amber-900 text-white'
     : 'bg-slate-200'
 
-  function handlePlayAgain() {
-    createRoom(gameConfig)
+  async function handlePlayAgain() {
+    await createRoom(gameConfig)
     navigate('/host/lobby')
   }
 

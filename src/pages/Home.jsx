@@ -1,10 +1,26 @@
 import { useNavigate } from 'react-router-dom'
-import { Monitor, Smartphone } from 'lucide-react'
+import { Monitor, Smartphone, LogOut } from 'lucide-react'
+import { useAuth } from '../context/AuthContext'
 
 export default function Home() {
   const navigate = useNavigate()
+  const { user, signOut } = useAuth()
+
   return (
     <div className="min-h-screen bg-bg-light flex flex-col items-center justify-center gap-10 p-8">
+      {user && (
+        <div className="absolute top-4 right-4 flex items-center gap-3">
+          <span className="text-sm font-bold text-slate-500">{user.email}</span>
+          <button
+            onClick={signOut}
+            className="neubrutalism p-2 bg-white rounded-lg"
+            title="Keluar"
+          >
+            <LogOut size={18} />
+          </button>
+        </div>
+      )}
+
       <div className="text-center">
         <h1 className="text-5xl font-black uppercase tracking-tight leading-tight">
           TARIK KETUPAT <span className="text-primary">MATEMATIKA</span>
