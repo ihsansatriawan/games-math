@@ -2,11 +2,11 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { QRCodeSVG } from 'qrcode.react'
 import { User, UtensilsCrossed, Flame } from 'lucide-react'
-import { useMockGame } from '../../context/MockGameContext'
+import { useGame } from '../../context/GameContext'
 
 export default function HostLobby() {
   const navigate = useNavigate()
-  const { roomPin, players, gameStatus, startGame } = useMockGame()
+  const { roomPin, players, gameStatus, startGame } = useGame()
 
   useEffect(() => {
     if (!roomPin) navigate('/host', { replace: true })
@@ -79,7 +79,7 @@ export default function HostLobby() {
             {/* Start button spans both columns */}
             <div className="col-span-2">
               <button
-                onClick={startGame}
+                onClick={async () => await startGame()}
                 className="neubrutalism neo-btn w-full py-8 bg-primary text-white text-4xl font-black uppercase tracking-widest rounded-2xl"
               >
                 Mulai Permainan!

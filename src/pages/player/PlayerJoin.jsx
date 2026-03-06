@@ -1,21 +1,26 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Gamepad2 } from 'lucide-react'
-import { useMockGame } from '../../context/MockGameContext'
+import { useGame } from '../../context/GameContext'
+import { useAuth } from '../../context/AuthContext'
 
 export default function PlayerJoin() {
   const navigate = useNavigate()
-  const { joinRoom } = useMockGame()
+  const { joinRoom } = useGame()
+  const { user } = useAuth()
   const [pin, setPin] = useState('')
-  const [name, setName] = useState('')
+  const [name, setName] = useState(() => {
+    if (user?.email) return user.email.split('@')[0]
+    return ''
+  })
   const [error, setError] = useState('')
 
-  function handleJoin() {
+  async function handleJoin() {
     if (!pin.trim() || !name.trim()) {
       setError('PIN dan nama harus diisi!')
       return
     }
-    const team = joinRoom(pin.trim(), name.trim())
+    const team = await joinRoom(pin.trim(), name.trim())
     if (!team) {
       setError('PIN tidak valid. Coba lagi.')
       return

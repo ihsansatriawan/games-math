@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useMockGame } from '../../context/MockGameContext'
+import { useGame } from '../../context/GameContext'
 import TimerBar from '../../components/host/TimerBar'
 import KetupatAnim from '../../components/host/KetupatAnim'
 
 export default function HostGameplay() {
   const navigate = useNavigate()
-  const { currentQuestion, currentQuestionIndex, questions, teamScores, gameStatus, nextQuestion } = useMockGame()
+  const { currentQuestion, currentQuestionIndex, questions, teamScores, gameStatus, nextQuestion } = useGame()
 
   useEffect(() => {
     if (gameStatus === 'finished') navigate('/host/result')

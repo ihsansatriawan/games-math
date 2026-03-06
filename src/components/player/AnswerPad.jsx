@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useMockGame } from '../../context/MockGameContext'
+import { useGame } from '../../context/GameContext'
 
 const OPTION_STYLES = {
   A: { base: 'bg-blue-500',    correct: 'bg-emerald-500', wrong: 'bg-rose-600' },
@@ -9,7 +9,7 @@ const OPTION_STYLES = {
 }
 
 export default function AnswerPad({ playerTeam }) {
-  const { currentQuestion, submitAnswer } = useMockGame()
+  const { currentQuestion, submitAnswer } = useGame()
   const [selectedAnswer, setSelectedAnswer] = useState(null)
   const [isSubmitted, setIsSubmitted] = useState(false)
 

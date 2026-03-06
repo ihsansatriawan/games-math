@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useMockGame } from '../../context/MockGameContext'
+import { useGame } from '../../context/GameContext'
 
 const MODES = [
   { id: 'penjumlahan', label: 'Tambah', symbol: '+' },
@@ -15,12 +15,12 @@ const DIFFICULTIES = [
 
 export default function HostSetup() {
   const navigate = useNavigate()
-  const { createRoom } = useMockGame()
+  const { createRoom } = useGame()
   const [mode, setMode] = useState('penjumlahan')
   const [difficulty, setDifficulty] = useState('mudah')
 
-  function handleCreate() {
-    createRoom({ mode, difficulty })
+  async function handleCreate() {
+    await createRoom({ mode, difficulty })
     navigate('/host/lobby')
   }
 

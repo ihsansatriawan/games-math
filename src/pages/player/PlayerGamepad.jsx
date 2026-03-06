@@ -1,22 +1,20 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useMockGame } from '../../context/MockGameContext'
+import { useGame } from '../../context/GameContext'
 import AnswerPad from '../../components/player/AnswerPad'
 
 export default function PlayerGamepad() {
   const navigate = useNavigate()
-  const { currentQuestion, players, gameStatus, teamScores } = useMockGame()
-
-  const thisPlayer = players[players.length - 1]
+  const { currentQuestion, playerTeam, gameStatus, teamScores } = useGame()
 
   useEffect(() => {
     if (gameStatus === 'finished') navigate('/play/result')
     if (gameStatus === 'idle' || gameStatus === 'lobby') navigate('/play')
   }, [gameStatus, navigate])
 
-  if (!thisPlayer || !currentQuestion) return null
+  if (!playerTeam || !currentQuestion) return null
 
-  const isOpor = thisPlayer.team === 'opor'
+  const isOpor = playerTeam === 'opor'
   const teamScore = isOpor ? teamScores.opor : teamScores.rendang
   const teamBg = isOpor ? 'bg-amber-400' : 'bg-amber-900'
   const teamText = isOpor ? 'text-slate-900' : 'text-white'
@@ -31,7 +29,7 @@ export default function PlayerGamepad() {
 
       {/* Answer pad */}
       <div className="flex-1 p-4">
-        <AnswerPad playerTeam={thisPlayer.team} />
+        <AnswerPad playerTeam={playerTeam} />
       </div>
 
       {/* Team score footer */}
